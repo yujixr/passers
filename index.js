@@ -2,7 +2,7 @@ addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 /**
- * Respond with hello worker text
+ * Respond with proxied data
  * @param {Request} request
  */
 async function handleRequest(request) {
@@ -25,9 +25,15 @@ async function handleRequest(request) {
     const html = (await res.text())
       .replaceAll(`https://`, `https://passers.yuji.workers.dev/`)
       .replaceAll(`http://`, `https://passers.yuji.workers.dev/`)
+      .replaceAll(`href="//`, `href="https://passers.yuji.workers.dev/`)
+      .replaceAll(`href='//`, `href='https://passers.yuji.workers.dev/`)
+      .replaceAll(`href=//`, `href=https://passers.yuji.workers.dev/`)
       .replaceAll(`href="/`, `href="https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
       .replaceAll(`href='/`, `href='https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
       .replaceAll(`href=/`, `href=https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
+      .replaceAll(`src="//`, `src="https://passers.yuji.workers.dev/`)
+      .replaceAll(`src='//`, `src='https://passers.yuji.workers.dev/`)
+      .replaceAll(`src=//`, `src=https://passers.yuji.workers.dev/`)
       .replaceAll(`src="/`, `src="https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
       .replaceAll(`src='/`, `src='https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
       .replaceAll(`src=/`, `src=https://passers.yuji.workers.dev/${(new URL(url)).host}/`)
