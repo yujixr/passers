@@ -2,5 +2,5 @@ name = "passers"
 type = "javascript"
 account_id = "da1b653e9325c3dfa3a192c3742804e6"
 workers_dev = false
-route = "yuji.ne.jp/passers/*"
+route = "yuji.ne.jp/hotlink-ok/*"
 zone_id = "13f3d51a5d48eafd2a120cf385e868f6"
