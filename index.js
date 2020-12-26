@@ -7,7 +7,7 @@ addEventListener('fetch', event => {
  */
 async function handleRequest(request) {
   try {
-    const url = new URL(`https://${request.url.slice(34)}`);
+    const url = new URL(`https://${request.url.slice(33)}`);
     const headers = new Headers({
       "User-Agent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
       "Referer": "https://www.google.com/search"
@@ -23,20 +23,20 @@ async function handleRequest(request) {
 
     const host = url.host;
     const html = (await res.text())
-      .replaceAll(`https://`, `https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`http://`, `https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`href="//`, `href="https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`href='//`, `href='https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`href=//`, `href=https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`href="/`, `href="https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
-      .replaceAll(`href='/`, `href='https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
-      .replaceAll(`href=/`, `href=https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
-      .replaceAll(`src="//`, `src="https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`src='//`, `src='https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`src=//`, `src=https://rss.yuji.ne.jp/hotlink-ok/`)
-      .replaceAll(`src="/`, `src="https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
-      .replaceAll(`src='/`, `src='https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
-      .replaceAll(`src=/`, `src=https://rss.yuji.ne.jp/hotlink-ok/${host}/`)
+      .replaceAll(`https://`, `https://passers.yuji.workers.dev/`)
+      .replaceAll(`http://`, `https://passers.yuji.workers.dev/`)
+      .replaceAll(`href="//`, `href="https://passers.yuji.workers.dev/`)
+      .replaceAll(`href='//`, `href='https://passers.yuji.workers.dev/`)
+      .replaceAll(`href=//`, `href=https://passers.yuji.workers.dev/`)
+      .replaceAll(`href="/`, `href="https://passers.yuji.workers.dev/${host}/`)
+      .replaceAll(`href='/`, `href='https://passers.yuji.workers.dev/${host}/`)
+      .replaceAll(`href=/`, `href=https://passers.yuji.workers.dev/${host}/`)
+      .replaceAll(`src="//`, `src="https://passers.yuji.workers.dev/`)
+      .replaceAll(`src='//`, `src='https://passers.yuji.workers.dev/`)
+      .replaceAll(`src=//`, `src=https://passers.yuji.workers.dev/`)
+      .replaceAll(`src="/`, `src="https://passers.yuji.workers.dev/${host}/`)
+      .replaceAll(`src='/`, `src='https://passers.yuji.workers.dev/${host}/`)
+      .replaceAll(`src=/`, `src=https://passers.yuji.workers.dev/${host}/`)
       .replaceAll(/integrity=['"]sha[\d]{3}-[\B]+?['"]/g, '')
       .replaceAll(/integrity=sha[\d]{3}-[\B]+?/g, '');
 
